@@ -37,6 +37,11 @@ queue_t* queue_init(size_t capacity)
 
     queue_t* queue = (queue_t*) malloc(sizeof(queue_t));
     void**   data  = (void**) malloc(capacity * sizeof(void*));
+
+    for (int i = 0; i < capacity; i ++) {
+        data[i] = NULL;
+    }
+
     if (!queue || !data)
     {
         // In case of free(NULL), no operation is performed.
@@ -91,6 +96,7 @@ void* queue_remove(queue_t* queue)
     if (queue->size > 0)
     {
         value = queue->data[queue->next];
+        queue->data[queue->next] = NULL;
         queue->next++;
         queue->size--;
         if (queue->next >= queue->capacity)

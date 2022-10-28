@@ -351,6 +351,7 @@ static int unbuffered_chan_recv(chan_t* chan, void** data)
     if (data)
     {
         *data = chan->data;
+        chan->data = NULL;
     }
     chan->w_waiting--;
 
