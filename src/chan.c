@@ -23,6 +23,7 @@
 #include "chan.h"
 #include "queue.h"
 
+/*
 #ifdef _WIN32
 #include <windows.h>
 #define CLOCK_REALTIME 0
@@ -37,6 +38,7 @@ static int clock_gettime (int __attribute__((__unused__)) clockid, struct timesp
     return 0;
 }
 #endif
+*/
 
 static int buffered_chan_init(chan_t* chan, size_t capacity);
 static int buffered_chan_send(chan_t* chan, void* data);
